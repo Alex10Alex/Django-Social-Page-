@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+{% load staticfiles %}
+
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +14,37 @@
     <title>Launch with code</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    {#    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    {#    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">#}
+    <link href="{% static 'css/bug-workaround.css' %}" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
-    <link href="juhttp://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    {#    <link href="juhttp://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">#}
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-      <style>
-          body{
-              padding-top: 0px;
-              padding-bottom: 0px;
-          }
+    <style>
+        body {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        .navbar {
+            margin-bottom: 0px !important;
+            border-radius: 0px !important;
+        }
+        .navbar-inverse  .navbar-brand, .navbar-brand:hover {
+            color:white;
+        }
 
-      </style>
+
+
+    </style>
+     {% block style %}
+        {% endblock %}
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -37,39 +55,40 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-success btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
-
-    <div class="container">
-      {% block content %}
-
-        {% endblock %}
-
-      <hr>
-
-      <footer>
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
+<body>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+
+
+
+    {% block content %}
+
+    {% endblock %}
+    <br>><br><br>><br><br>><br>
+    <div class = 'row'  style =  'background-color:grey; margin-top: 50px;'>
+    <div class="container" style = "text-align: center; padding: 20px">
+    <footer >
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+</div> <!-- /container -->
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script>
+        $(document).ready(function(){
+            {% block jquery %}
+            {% endblock %}
+        });
+
+    </script>
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 </html>

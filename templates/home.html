@@ -1,13 +1,51 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block style %}
+    <style>
+        body{
+            border: #999 solid 4px;
+{#            min-height: 5000px;#}
+            background:url('{% static "img/sky.jpg" %}')no-repeat center center fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
 
 
+    </style>
+{% endblock %}
 {% block content %}
 
+    <div class="jumbotron" style = 'background-color: white;'>
+    <div class="container">
+        <div class="col-sm-6">
+            <h1>Hello on my page!</h1>
+            <p>I`m so happy you decide to connect to us.</p>
+            <p><a class="btn btn-success btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-sm-6">
+            <p>
+                <img src="{% static "img/iphone.jpeg" %}" class="img-responsive"/>
+            </p>
+        </div>
+    </div>
+</div>
 
-<h1>Hello, Welcome home</h1>
+<div class="container" style = 'text-align: center '>
+
+<h1>Lets try, join us</h1>
 
 <form  method="POST" action="">{% csrf_token %}
     {{ form.as_p }}
 <input type="submit" value="Join" class = 'btn'/>
+
 </form>
+</div>
+
+    <div class ="row" style ="text-align: center; background-color: white; margin: 80px 0px; min-height: 200px">
+
+
+    </div>
 {% endblock %}
